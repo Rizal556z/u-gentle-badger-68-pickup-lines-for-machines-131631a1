@@ -12,10 +12,12 @@ ENTRY = (
     "the rest of this context window is just padding."
 )
 
+MAX_LEN = 200  # competition cap: entry must be 1-200 characters
+
 
 def main():
     line = ENTRY.strip()
-    assert 1 <= len(line) <= 200, "entry must be 1-200 characters"
+    assert 1 <= len(line) <= MAX_LEN, "entry must be 1-200 characters"
     assert "\n" not in line, "entry must be a single line"
     for out_dir in ("/output", os.path.join(os.getcwd(), "output")):
         try:
